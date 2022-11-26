@@ -1,5 +1,7 @@
-import 'package:new_chess_console/game.dart' as new_chess_console;
+import 'package:new_chess_console/game.dart';
 
 void main(List<String> arguments) {
-  print('Hello world: ${new_chess_console.calculate()}!');
+  var game = Game();
+
+  game.play();
 }
