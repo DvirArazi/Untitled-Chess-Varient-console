@@ -1,14 +1,19 @@
 import 'dart:core';
 
+import 'package:equatable/equatable.dart';
+
 enum PieceType { king, queen, rook, knight, bishop, pawn }
 
 enum PieceColor { white, black }
 
-class Piece {
+class Piece extends Equatable{
   const Piece(this.type, this.color);
 
   final PieceType type;
   final PieceColor color;
+  
+  @override
+  List<Object?> get props => [type, color];
 }
 
 class IconPair {
@@ -27,8 +32,7 @@ const Map<PieceType, IconPair> iconsMap = {
   PieceType.pawn: IconPair('♙', '♟︎'),
 };
 
-Piece piece(String char) {
-  const Map<String, Piece> piecesMap = {
+const Map<String, Piece> piecesMap = {
     'K': Piece(PieceType.king, PieceColor.white),
     'Q': Piece(PieceType.queen, PieceColor.white),
     'R': Piece(PieceType.rook, PieceColor.white),
@@ -43,13 +47,18 @@ Piece piece(String char) {
     'p': Piece(PieceType.pawn, PieceColor.black),
   };
 
-  return piecesMap[char]!;
+Piece? piece(String char) {
+  return piecesMap[char];
 }
 
-String pieceToIcon(Piece piece, bool isOnLight) {
+String pieceToIcon(Piece piece) {
   var pair = iconsMap[piece.type]!;
 
   return (piece.color == PieceColor.white)// != isOnLight
       ? pair.white
       : pair.black;
+}
+
+PieceColor boolToColor(bool b) {
+  return b ? PieceColor.white : PieceColor.black;
 }

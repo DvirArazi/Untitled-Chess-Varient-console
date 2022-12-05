@@ -13,3 +13,9 @@ class OpCon {
   final P op;
   final bool Function(Piece?) con;
 }
+
+enum IlligalMoveError {
+  noPiece,
+  wrongColor,
+  noMoves
+}
