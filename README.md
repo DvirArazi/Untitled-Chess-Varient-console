@@ -4,7 +4,7 @@ The program is a precursor for a Multi-platform Flutter app currently in develop
 
 ## Running the program
 - Install the [Dart SDK](https://dart.dev/get-dart)
-- Clone this project and enter the cloned folder
+- Clone this project and enter the cloned folder and install dependencies with `dart pub get`
 - Run the project with `dart run`
 
 ## Rules
